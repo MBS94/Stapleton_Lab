@@ -54,19 +54,19 @@ effect_SNP = SNP_List[:1000]  # Pick the first 1000 of a random shuffle
 # Adding the buffs to the effected SNPs
 for item in effect_SNP:
     # Low Water
-    SNPHeights[item][0] = random.uniform(-.1, .3)
+    SNPHeights[item][0] = random.uniform(-.2, .2)
     SNPStdD[item][0] = random.uniform(-.01, .01)
     # Low Nitrogen
-    SNPHeights[item][1] = random.uniform(-.1, .3)
+    SNPHeights[item][1] = random.uniform(-.2, .2)
     SNPStdD[item][1] = random.uniform(-.01, .01)
     # Pathogen
-    SNPHeights[item][2] = random.uniform(-.1, .3)
+    SNPHeights[item][2] = random.uniform(-.2, .2)
     SNPStdD[item][2] = random.uniform(-.01, .01)
 
 height = []
 count = []
-a = 1
-b = len(gxeData)
+a = 1000
+b = 2000 #len(gxeData)
 bTime = time.time()
 newData = []
 for i in range(a, b):
@@ -103,3 +103,5 @@ print(etime - bTime)
 with open("newData.csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(newData)
+
+print(heightMean, heightSD)
