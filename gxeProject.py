@@ -44,8 +44,8 @@ SNP_List = data[0][4:]
 
 # Populating the dictionaries with buffs of zero
 for item in SNP_List:
-    SNPHeights[item] = [0, 0, 0] # Low Water, Low Nitrogen, Pathogen
-    SNPStdD[item] = [0, 0, 0] # # Low Water, Low Nitrogen, Pathogen
+    SNPHeights[item] = [0, 0, 0]  # Low Water, Low Nitrogen, Pathogen
+    SNPStdD[item] = [0, 0, 0]     # Low Water, Low Nitrogen, Pathogen
 
 # Shuffle the SNPs to choose random SNPs
 random.shuffle(SNP_List)
@@ -65,8 +65,8 @@ for item in effect_SNP:
 
 height = []
 count = []
-a = 1000
-b = 2000 #len(gxeData)
+a = 1000  # 0
+b = 2000  # len(gxeData)
 bTime = time.time()
 newData = []
 for i in range(a, b):
