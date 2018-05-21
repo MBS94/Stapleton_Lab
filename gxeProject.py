@@ -83,12 +83,13 @@ for item in effect_SNP:
 height = []
 count = []
 a = 1
-b = 2 #len(gxeData)
+b = 2  # len(gxeData)
 # print((gxeData[0]))
 bTime = time.time()
-newData = [["Height", "Total Mean Var", "Total SD Var", "Total Low Water Mean",
-"Total Low Water SD", "Total Low Nitrogen Mean", "Total Low Nitrogen Mean SD",
-"Total Pathogen Mean", "Total Pathogen SD"]]
+newData = [["Height", "Total Mean Var", "Total SD Var",
+            "Total Low Water Mean", "Total Low Water SD",
+            "Total Low Nitrogen Mean", "Total Low Nitrogen Mean SD",
+            "Total Pathogen Mean", "Total Pathogen SD"]]
 for i in range(a, b):
     n = i - a
     height.append(0)
@@ -110,7 +111,8 @@ for i in range(a, b):
             totalMean_Var += meanBuff[k - 1]
             totalMean_Var += Treatment_Effects[k-1]
             totalSD_Var += sdBuff[k - 1]
-    SD_New = ((Average_Error / heightMean) + totalSD_Var) * (totalMean_Var + heightMean)
+    SD_New = ((Average_Error / heightMean) + totalSD_Var) \
+                             * (totalMean_Var + heightMean)
     if SD_New <= 0:
         print("HELP", SD_New)
 
@@ -131,8 +133,8 @@ SNP_Data = []
 
 for item in effect_SNP:
     x = [item, SNPHeights[item][0], SNPStdD[item][0],
-            SNPHeights[item][1], SNPStdD[item][1],
-            SNPHeights[item][2], SNPStdD[item][2]]
+         SNPHeights[item][1], SNPStdD[item][1],
+         SNPHeights[item][2], SNPStdD[item][2]]
     SNP_Data.append(x)
 
 with open("SNPData.csv", "w", newline="") as f:
