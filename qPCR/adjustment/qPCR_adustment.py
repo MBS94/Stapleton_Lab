@@ -39,24 +39,22 @@ def Neill2018_Data_BlockAdju(xInput, yInput):
         print(math.pow(10,2-i) , "Adjustment:", qPCR_Adusjutment(temp_x, temp_y))
 
 def Neill2018_Data():
-    x = [18.73, 18.94, 18.88, 22.39, 22.43, 22.35, 25.44,
-     25.52, 25.53, 28.34, 28.44, 28.32, 31.18, 31.18, 31.13]
-    y = [17.74, 17.7, 17.72, 21.4, 21.57, 21.28, 24.86,
-     24.85, 24.7, 28.08, 28.09, 28, 30.98, 30.95, 30.97]
-    xA, xB, xC = [], [], []
-    yA, yB, yC = [], [], []
+
+    data = np.genfromtxt("Neill2018calibrations.csv", dtype=float, delimiter=',', names=True)
+
 
     # amount_gblock+ire
+    x = []
+    y = []
+    for i in range(len(data)):
+        x.append(data[i][5])
+        y.append(data[i][3])
 
     # all_productsCp1
-    x = np.array([18.73, 18.94, 18.88,
-     22.39, 22.43, 22.35, 25.44, 25.52,
-      25.53, 28.34, 28.44, 28.32, 31.18, 31.18, 31.13])
+    x = np.array(x)
 
     # test1_Cp1
-    y = np.array([17.74, 17.7, 17.72, 21.4,
-     21.57, 21.28, 24.86, 24.85, 24.7,
-      28.08, 28.09, 28, 30.98, 30.95, 30.97])
+    y = np.array(y)
 
     print(Neill2018_Data_UnifromAdju(x, y))
 
@@ -64,15 +62,18 @@ def Neill2018_Data():
 
     # 50_50gblocks
     print('\n' + "50/50")
+
+    x = []
+    y = []
+    for i in range(len(data)):
+        x.append(data[i][15])
+        y.append(data[i][14])
+    
     # allproductsCp1_50_50
-    x = np.array([17.9, 18.03, 17.93, 21.46, 21.51,
-     21.6, 24.68, 24.66, 24.79, 27.62, 27.54, 27.62,
-      30.14, 30.18, 30.13])
+    x = np.array(x)
 
     # test1Cp150_50
-    y = np.array([16.46, 16.42, 16.32, 19.95, 20.01,
-     19.85, 23.46, 23.51, 23.42, 26.61, 26.65, 26.53,
-      29.6, 29.61, 29.44])
+    y = np.array(y)
 
     print(Neill2018_Data_UnifromAdju(x, y))
 
