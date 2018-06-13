@@ -3,6 +3,7 @@ __author__ = 'Michael Byrd'
 
 import numpy as np
 import random, math
+import pandas as pd
 
 def qPCR_Adusjutment(xVec, yVec):
     return np.mean(np.subtract.outer(xVec, yVec))
@@ -68,7 +69,7 @@ def Neill2018_Data():
     for i in range(len(data)):
         x.append(data[i][15])
         y.append(data[i][14])
-    
+
     # allproductsCp1_50_50
     x = np.array(x)
 
@@ -80,4 +81,12 @@ def Neill2018_Data():
     Neill2018_Data_BlockAdju(x,y)
 
 
-Neill2018_Data()
+# Neill2018_Data()
+
+def RNA_6_8_18():
+    data = np.genfromtxt("Stapleton_RNA_6.8.18_labels_cpValues.csv", dtype=float, delimiter=',', names=True)
+
+    pd.read_csv("Stapleton_RNA_6.8.18_labels_cpValues.csv", sep=',')
+    pd.head()
+
+RNA_6_8_18()
