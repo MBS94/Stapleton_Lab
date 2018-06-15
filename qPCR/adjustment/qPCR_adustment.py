@@ -84,9 +84,49 @@ def Neill2018_Data():
 # Neill2018_Data()
 
 def RNA_6_8_18():
-    data = np.genfromtxt("Stapleton_RNA_6.8.18_labels_cpValues.csv", dtype=float, delimiter=',', names=True)
+    # data = np.genfromtxt("Stapleton_RNA_6.8.18_labels_cpValues.csv", dtype=float, delimiter=',', names=True)
 
-    pd.read_csv("Stapleton_RNA_6.8.18_labels_cpValues.csv", sep=',')
-    pd.head()
+    df = pd.read_csv("Stapleton_RNA_6.8.18_labels_cpValues.csv", sep=',')
+
+    print(df.head())
+
+    test_data_Dict = dict()
+    allP_data_Dict = dict()
+
+    for index, row in df.iterrows():
+        label = row['Sample']
+        s_quantity = row['Starting Quantity for Std']
+        cpD1 = row['cpD1']
+
+        # if label in data_Dict:
+        #     data_Dict[label].append(cpD1)
+        # else:
+        #     data_Dict[label] = [cpD1]
+
+
+        if row['reaction_type'] == "Test1":
+            if label in test_data_Dict:
+                if s_quantity in test_data_Dict[label]:
+                    test_data_Dict[label][s_quantity].append(cpD1)
+                else:
+                    test_data_Dict[label][s_quantity] = [cpD1]
+            else:
+                test_data_Dict[label] = {s_quantity : [cpD1]}
+        elif row['reaction_type'] == "all_products":
+            if label in allP_data_Dict:
+                if s_quantity in allP_data_Dict[label]:
+                    allP_data_Dict[label][s_quantity].append(cpD1)
+                else:
+                    allP_data_Dict[label][s_quantity] = [cpD1]
+            else:
+                allP_data_Dict[label] = {s_quantity : [cpD1]}
+
+    print(allP_data_Dict['gblock+IRE_plus18IRE'])
+    print(test_data_Dict['gblock+IRE_plus18IRE'])
+
+
+        # print(row['Sample'])
+
+
 
 RNA_6_8_18()
