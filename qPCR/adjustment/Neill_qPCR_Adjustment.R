@@ -1,11 +1,17 @@
 # qPCR Adjustment using U-Statistics
 # Author: Michael Byrd
 
-setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/qPCR/adjustment")
+# Mac Directory
+# setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/qPCR/adjustment")
+
+# Windows Directory
+setwd("C:/Users/mbyrd/Documents/Stapleton/Stapleton_Lab/qPCR/adjustment")
+
+
 # Calibration Data
 data <- read.csv(file = "Neill2018calibrations.csv")
 # Expiremental Data
-exp_data <- read.csv(file = "corrected17June_Neill Thesis RNA samples.csv")
+exp_data <- read.csv(file = "corrected17June_Neill Thesis RNA samples.csv")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 # cp Values of Calibration data
 test1 <- data$test1_Cp1
 all_prod <- data$all_productsCp1
