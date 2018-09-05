@@ -1,4 +1,29 @@
+library(qtl)
+library(vqtl)
+
+setwd ("/Users/mbyrd/StapletonLab/Stapleton_Lab/vQTL/Simulation")
+
+#> 
+#> Attaching package: 'vqtl'
+#> The following object is masked from 'package:qtl':
+#> 
+#>     scanonevar
+
 set.seed(27599)
-test.cross <- qtl::sim.cross(map = qtl::sim.map(len = rep(20, 3), n.mar = 5), n.ind = 50)
-test.sov <- scanonevar(cross = test.cross)
-plot(x = test.sov)
+
+test.cross <- qtl::sim.cross(map = qtl::sim.map(len = rep(20, 5), eq.spacing = FALSE))
+
+test.cross[['pheno']][['sex']] <- sample(x = c(0, 1),
+                                         size = qtl::nind(test.cross),
+                                         replace = TRUE)
+test.cross[['pheno']][['sire']] <- factor(x = sample(x = 1:5,
+                                                     size = qtl::nind(test.cross),
+                                                     replace = TRUE))
+test.cross <- qtl::calc.genoprob(cross = test.cross, step = 2)
+
+write.csv(test.cross, file = "test_cross.csv")
+
+
+sov <- scanonevar(cross = test.cross,
+                  mean.formula = phenotype ~ sex + D1M2 + mean.QTL.add + mean.QTL.dom,
+                  var.formula = ~ sire + D2M3 + var.QTL.add + var.QTL.dom)
