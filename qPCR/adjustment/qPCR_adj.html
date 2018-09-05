@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<!--- pandoc qPCR_adj.md -f markdown -t html -s -o qPCR_adj.html --->
+<h1 id="qpcr-adjustment-analysis-on-neill-data">qPCR Adjustment Analysis on Neill Data</h1>
+<p></br></p>
+<h3 id="original-data-sets">Original Data Sets</h3>
+<p>Training: Neill2018calibrations.xlsx<br />
+Experimental: corrected17June_Neill Thesis RNA samples.xlsx</p>
+<h3 id="output-data">Output data</h3>
+<p>Neill_Thesis_RNA_Adjusted.csv</p>
+<h2 id="process">Process</h2>
+<ul>
+<li><p>The data is separated into two output columns, test_1 and all_products. We want to adjust the ouput from test_1 to make it comparable to the all_product output.</p></li>
+<li><p>The calibrated (training) data is grouped into sets of three with inputs varying in powers of 10.</p></li>
+<li><p>Our method involves calculating U-Statistics on these groups for the test_1 and all_prod columns. This process utilizes the difference in expected values as our adjustment value.</p></li>
+<li><p>We then create a linear model that will map test_1 values to an adjustment value. This adjustment value is then added to test_1 to make it comparable to all_products</p></li>
+<li><p>To increase the linear models accuracy and reduce trends in residuals, we map the ratio of all_products over test_1 to the square of the adjustment values</p></li>
+<li><p>We then use this linear model as a 'look-up table' to find the correct adjustment values for test_1 in the expieremental data set with unknown inputs. This unknown input is what prevents any grouping thus requiring the linear model.</p></li>
+</ul>
+<p>The R script for this process can be found on Github at the following <a href="https://github.com/michael-byrd/Stapleton_Lab/blob/development/qPCR/adjustment/Neill_qPCR_Adjustment.R">link</a>.</p>
+</body>
+</html>
