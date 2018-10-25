@@ -162,7 +162,7 @@ outvdf<- data.frame(outv$result$loc.name[keep],
                     outv$result$v__est__var.QTL.add[keep],
                     outv$result$v__est__var.QTL.add[keep],
                     outv$result$m__est__env[keep],
-                    outv$result$m__se__env[keep],)
+                    outv$result$m__se__env[keep])
 outvdf = cbind(outvdf,sizedf1)
 colnames(outvdf) = c("SNP Name",
                      "Position (cM)",
