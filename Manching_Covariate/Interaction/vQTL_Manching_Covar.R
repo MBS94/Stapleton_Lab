@@ -4,7 +4,6 @@ library(vqtl)
 library(purrr)
 library(readr)
 library(dplyr)
-library(beepr)
 # setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
 # setwd ("/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/JulyWork")
 # Michael Stampede Path
