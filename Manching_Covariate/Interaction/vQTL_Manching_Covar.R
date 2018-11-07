@@ -4,11 +4,19 @@ library(vqtl)
 library(purrr)
 library(readr)
 library(dplyr)
+
+# CORRECT MACBOOK PATH
 # setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
-# setwd ("/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/JulyWork")
-# Michael Stampede Path
-dat <- read.cross(file = "/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/SimulatedResponse.csv")
-# Full Data Set Local Git Path
+
+# Michael Stampede Path (NEED TO CHECK THIS)
+# setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/Interaction")
+
+
+# THIS IS SIMULATED DATA
+# dat <- read.cross(file = "/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/SimulatedResponse.csv")
+########################
+
+
 
 csvData <- read.csv(file = "./ManchingScrubbed.csv")
 uTab = unique(csvData[-1:-3,2:4])
