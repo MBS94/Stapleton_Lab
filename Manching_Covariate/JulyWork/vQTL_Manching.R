@@ -4,9 +4,9 @@ library(vqtl)
 library(purrr)
 library(readr)
 library(dplyr)
-setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/JulyWork")
-# setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/JulyWork")
+# setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/JulyWork")
 # Michael Stampede Path
+setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/JulyWork")
 # dat <- read.cross(file = "/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/SimulatedResponse.csv")
 # Full Data Set Local Git Path
 dat <- read.cross(file = "./ManchingScrubbed.csv")
