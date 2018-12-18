@@ -4,8 +4,8 @@ library(vqtl)
 library(purrr)
 library(readr)
 library(dplyr)
-setwd("/Users/mbyrd/StapletonLab/Thomas/Stapleton-Lab/Manching BayesNet/JulyWork")
-# setwd ("/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/JulyWork")
+setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/JulyWork")
+# setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/JulyWork")
 # Michael Stampede Path
 # dat <- read.cross(file = "/work/04908/mcb4548/stampede2/GitHub/Thomas_Code_Forked/Stapleton-Lab/Manching\ BayesNet/SimulatedResponse.csv")
 # Full Data Set Local Git Path
@@ -180,5 +180,5 @@ colnames(outvdf) = c("SNP Name",
                      "B Standard Deviation Lower Bound",
                      "B Standard Deviation Upper Bound")
 
-write.csv(outvdf, file = "Manching_vQTL_Sim_Aug-9-18.csv")
+write.csv(outvdf, file = "Test_18_Dec.csv")
 
