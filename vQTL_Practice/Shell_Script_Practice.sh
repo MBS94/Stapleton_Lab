@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J Manching_vQTL_09_Aug           # Job name
+#SBATCH -J Practice_Job_18_Dec          # Job name
 #SBATCH -e myjob.e%j       # Name of stderr error file
 #SBATCH -p skx-normal          # Queue (partition) name
 #SBATCH -N 1               # Total # of nodes (must be 1 for serial)
@@ -13,4 +13,4 @@
 # Other commands must follow all #SBATCH directives...
 
 mkdir output
-Rscript --vanilla --verbose ./vQTL_Manching.R > ./output.Rout
+Rscript --vanilla --verbose ./Manching_Practice.R > ./output.Rout
