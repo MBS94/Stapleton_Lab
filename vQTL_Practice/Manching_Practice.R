@@ -4,11 +4,11 @@ library(vqtl)
 library(purrr)
 library(readr)
 library(dplyr)
-setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/vQTL_Practice")
+# setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/vQTL_Practice")
 # Michael Stampede Path
-# Need to Change after Git # setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/JulyWork")
+# setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/vQTL_Practice")
 
-dat <- read.cross(file = "./ManchingScrubbed.csv")
+dat <- read.cross(file = "./Manching_Practice_Data.csv")
 
 
 # Not sure what this does. Was told by Thomas its needed.
