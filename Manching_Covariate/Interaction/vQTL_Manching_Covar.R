@@ -6,7 +6,7 @@ library(readr)
 library(dplyr)
 
 # CORRECT MACBOOK PATH
-# setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
+setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
 
 # Michael Stampede Path (NEED TO CHECK THIS)
 # setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/Interaction")

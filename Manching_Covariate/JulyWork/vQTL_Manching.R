@@ -14,6 +14,7 @@ dat <- read.cross(file = "./ManchingScrubbed.csv")
 
 # dat <- read.cross(file = "./small_dat.csv")
 
+
 dat <- drop.nullmarkers(dat)
 #scan with variance
 dat <- calc.genoprob(dat)
