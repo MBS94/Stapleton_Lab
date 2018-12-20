@@ -6,10 +6,10 @@ library(readr)
 library(dplyr)
 
 # CORRECT MACBOOK PATH
-setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
+# setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
 
 # Michael Stampede Path (NEED TO CHECK THIS)
-# setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/Interaction")
+setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/Interaction")
 
 
 # THIS IS SIMULATED DATA
@@ -202,5 +202,5 @@ colnames(outvdf) = c("SNP Name",
                      "B Standard Deviation Lower Bound",
                      "B Standard Deviation Upper Bound")
 
-write.csv(outvdf, file = "ManchingCovarCombined_vQTL_Oct-24-18.csv")
+write.csv(outvdf, file = "2018_12_20_ManchingCovarCombined_vQTL.csv")
 
