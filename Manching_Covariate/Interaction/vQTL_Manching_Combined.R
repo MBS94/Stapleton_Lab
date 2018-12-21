@@ -20,6 +20,7 @@ setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/In
 
 csvData <- read.csv(file = "./NewManchingPracticeData.csv")
 
+csvData <- csvData[,-1]
 # uTab = unique(csvData[-1:-3,2:4])
 # env <- rep(0, 6672)
 # 
