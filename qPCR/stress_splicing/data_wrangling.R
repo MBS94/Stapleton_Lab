@@ -2,6 +2,7 @@
 
 library(tidyr)
 library(pracma)
+library(stringr)
 
 # Mac Directory
 setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/qPCR/stress_splicing")
@@ -31,6 +32,7 @@ for(i in 1:length(data$starting_quantity)){
   }
   val <- toString(data$reaction_type[i])
   if(strcmp(val, "test1")){
+    print(data$cpD1[i])
     test1 <- c(test1, data$cpD1[i])
   }
   if(strcmp(val, "all_products")){
@@ -45,11 +47,56 @@ write.csv(d, file="calib_data.csv")
 
 
 # Read in Expiremental Data
-exp_data <- read.csv(file = "2018_6_1_Experimental_Data_Frame_with_Derivatives.csv")     
+exp_data <- read.csv(file = "2018_6_1_Experimental_Data_Frame_with_Derivatives.csv")
+
+# Format starting quantity as numeric, not in scientific notation
+options(scipen=5)
 # Format starting quantity as numeric
 exp_data <- exp_data[c(4,2,3,5,6)]
 # Remove first extra labeling row
 exp_data <- exp_data[-1,]
+# Sort data by sample ID
+exp_data <- exp_data[order(exp_data$sampleID),]
+# Remove NTC values
+exp_data <- exp_data[-(187:196),]
+# Create two data frames from reaction type (test1 or all_products) 
+test1.exp_data = exp_data %>% filter(str_detect(exp_data$reaction_type, "test1") == TRUE)
+allP.exp_data = exp_data %>% filter(str_detect(exp_data$reaction_type, "all_products") == TRUE)
+# Merge two data frames by sample ID
+#exp.df <- merge(test1.exp_data, allP.exp_data, by="sampleID")
+
+
+
+# Create empty vectors for for-loop to input cpD1 values
+test1.exp = c()
+allP.exp = c()
+sampleID.exp = c()
+# For loop -- iterating thru starting quantity and reaction type to return cpD1 values 
+# length(exp_data$sampleID)
+for(i in 1:20){
+  id.exp <- toString(exp_data$sampleID[i])
+  if(i %% 2 == 1){
+    sampleID.exp <- c(sampleID.exp, id.exp)
+  }
+  val <- toString(exp_data$reaction_type[i])
+  if(strcmp(val, "test1")){
+    print(typeof(exp_data$cpD1[i]))
+    test1.exp <- c(test1.exp, as.double(exp_data$cpD1[i]))
+  }
+  if(strcmp(val, "all_products")){
+       # print(exp_data$cpD1[i])
+    allP.exp <- c(allP.exp, as.double(exp_data$cpD1[i]))
+  }
+}
+# Transpose test1.exp
+test1.exp <- t(test1.exp)
+# Create allP.exp as a data frame; Transpose to single column
+allP.exp <- as.data.frame(allP.exp)
+allP.exp <- t(allP.exp)
+# Make startq.exp as data frame
+sampleID.exp <- as.data.frame(sampleID.exp)
+#e <- cbind(startq.exp)
+exp.df <- cbind(sampleID.exp, test1.exp, allP.exp)
 
 
 --------
