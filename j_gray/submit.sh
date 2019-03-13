@@ -9,4 +9,5 @@
 #SBATCH --mail-type=all    # Send email at begin and end of job
 
 # Other commands must follow all #SBATCH directives...
-Rscript --verbose ./practicewithQTL.R > ./output.Rout
+
+Rscript --vanilla --verbose ./practicewithQTL.R > ./output.Rout
