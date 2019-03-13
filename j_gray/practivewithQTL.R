@@ -1,5 +1,5 @@
 library(qtl)
-setwd ("/work/06156/jg1994/stampede2/Stapleton_Lab")
+setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/j_gray")
 samp=read.cross(file ="familyandrandom.csv")
 ls()
 
