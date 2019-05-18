@@ -26,7 +26,12 @@ adj_val = vector()
 # Itterating through each set of (3) observations performing U-Stats on each set of inputs
 for (i in 1:(nrow(data)/3)){
   t_x <- c(data$all_productsCp1[3*i - 2], data$all_productsCp1[3*i - 1], data$all_productsCp1[3*i])
+  print(t_x)
+  
+  
   t_y <- c(data$test1_Cp1[3*i - 2], data$test1_Cp1[3*i - 1], data$test1_Cp1[3*i])
+  print(t_y)
+  print(" ")
   adj <- mean(outer(t_x, t_y, "-"))
   adj_val <- c(adj_val, adj, adj, adj)
 }

@@ -1,5 +1,5 @@
 ---
-title: "2018-06-01 Stapleton qPCR"
+title: "2018-11-02 Stapleton qPCR"
 author: "Michael Byrd"
 output: html_document
 ---
@@ -12,7 +12,7 @@ library(qpcR)
 ##Reading in data
 The data is hosted on my Github so that this code can be run from other machines than my own.
 ```{r}
-hex <- read.csv(file = "2018_6_1_plate.csv")
+hex <- read.csv(file = "2018_11_2_plate.csv")
 ```
 ##Starting with the Analysis
 This is where I generate the models for all of the runs included. 
@@ -44,12 +44,12 @@ hcpd2 = unlist(hcpd2)
 We bind the cpD1 and cpD2 results into a dataframe. We also remove the first column. Finally we write a csv output file.
 ```{r}
 eff.frame = as.data.frame(rbind(hcpd1,hcpd2))
-colnames(eff.frame) = colnames(hex)[-c(1,151,275,276)]; rownames(eff.frame) = c("cpD1","cpD2")
+colnames(eff.frame) = colnames(hex)[-c(1)]; rownames(eff.frame) = c("cpD1","cpD2")
 frameT = (cbind(c("cpD1","cpD2"), eff.frame))
-hexT <- hex[-c(151,275,276)]
+hexT <- hex[]
 temp = t(cbind(t(hexT[1:3, ]), t(frameT)))
 
 # transposed_temp_hex = t(hex[-c(1,104,232,233)])
 # out = t(cbind(t(temp_hex[1:3,]),temp))
-write.csv(temp, file= "2018_06_01_plate_qPCR_output_2019_04_04.csv")
+write.csv(temp, file= "2018_11_2_plate_qPCR_output.csv")
 ```
