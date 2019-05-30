@@ -14,3 +14,5 @@ outv <- scanonevar(cross = fr,
                    mean.formula = Height ~ Env + mean.QTL.add + mean.QTL.dom,
                    var.formula = ~ Env + var.QTL.add + var.QTL.dom,
                    return.covar.effects = TRUE)
+
+write_rds(outv, "2019_06_outv.rds", compress = "xz")
