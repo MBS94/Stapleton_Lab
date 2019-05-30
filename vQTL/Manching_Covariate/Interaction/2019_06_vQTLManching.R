@@ -2,8 +2,9 @@
 #install.packages("qtl")
 library(qtl)
 library(vqtl)
-#we also got rid of "(" in SNP ID rz44bd and rz574bc
-setwd("/Users/mbyrd/Stapleton/Stapleton_Lab/vQTL/Manching_Covariate/Interaction")
+setwd("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/vQTL/Manching_Covariate/Interaction")
+# Mac Path
+#setwd("/Users/mbyrd/Stapleton/Stapleton_Lab/vQTL/Manching_Covariate/Interaction")
 fr <-read.cross(file = "ManchingStressData_Covar.csv")
 fr <- drop.nullmarkers(fr)
 #scan with variance
