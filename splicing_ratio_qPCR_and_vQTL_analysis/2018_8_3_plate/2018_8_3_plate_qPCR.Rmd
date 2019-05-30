@@ -44,8 +44,12 @@ hcpd2 = unlist(hcpd2)
 We bind the cpD1 and cpD2 results into a dataframe. We also remove the first column. Finally we write a csv output file.
 ```{r}
 eff.frame = as.data.frame(rbind(hcpd1,hcpd2))
-colnames(eff.frame) = colnames(hex)[-1]; rownames(eff.frame) = c("cpD1","cpD2")
-temp = t(cbind(c("cpD1","cpD2"), eff.frame))
-out = t(cbind(t(hex[1:3,]),temp))
-write.csv(out, file= "2018_8_3_plate_qPCR_output.csv")
+colnames(eff.frame) = colnames(hex)[-c(1,201)]; rownames(eff.frame) = c("cpD1","cpD2")
+frameT = (cbind(c("cpD1","cpD2"), eff.frame))
+hexT <- hex[-c(201)]
+temp = t(cbind(t(hexT[1:3, ]), t(frameT)))
+
+# transposed_temp_hex = t(hex[-c(1,104,232,233)])
+# out = t(cbind(t(temp_hex[1:3,]),temp))
+write.csv(temp, file= "2018_08_03_plate_qPCR_output_2019_05_19.csv")
 ```
