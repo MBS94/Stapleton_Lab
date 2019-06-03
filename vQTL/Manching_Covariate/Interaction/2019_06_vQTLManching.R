@@ -30,7 +30,7 @@ addOneVar <- scanonevar(cross = fr,
                    return.covar.effects = TRUE)
 
 # Writing the result of the additive scanonevar for later use
-write_rds(outv, "addOneVar.rds", compress = "xz")
+write_rds(addOneVar, "addOneVar.rds", compress = "xz")
 
 
 # Interactive scanonevar function
@@ -40,7 +40,7 @@ intOneVar <- scanonevar(cross = sample,
                    return.covar.effects = TRUE)
 
 # Writing the result of the interactive scanonevar for later use
-write_rds(outv, "intOneVar.rds", compress = "xz")
+write_rds(intOneVar, "intOneVar.rds", compress = "xz")
 
 
 # Writing out the results of the two 
