@@ -1,4 +1,4 @@
-#vQTL with simulated data
+# vQTL with simulated data
 library(qtl)
 library(vqtl)
 library(purrr)
@@ -6,10 +6,10 @@ library(readr)
 library(dplyr)
 
 # CORRECT MACBOOK PATH
-setwd("/Users/mbyrd/StapletonLab/Stapleton_Lab/Manching_Covariate/Interaction")
+setwd("/Users/mbyrd/Stapleton/Stapleton_Lab/vQTL/Manching_Covariate/Interaction")
 
 # Michael Stampede Path (NEED TO CHECK THIS)
-setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/Interaction")
+# setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/Interaction")
 
 
 # THIS IS SIMULATED DATA
@@ -19,30 +19,6 @@ setwd ("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/Manching_Covariate/In
 
 
 csvData <- read.csv(file = "./NewManchingPracticeData.csv")
-
-# csvData <- csvData[,-1]
-# write.csv(csvData, "NewManchingPracticeData.csv", row.names = F)
-# uTab = unique(csvData[-1:-3,2:4])
-# env <- rep(0, 6672)
-# 
-# for(i in 3:6674){
-#   tempV = csvData[i, 2:4]
-#   for(j in 1:8){
-#     if(all(tempV == uTab[j,])){
-#       env[i-3] <- j 
-#     }
-#   }
-# }
-
-
-# env <- c(NA, NA, env)
-# 
-# newData <- cbind(csvData[,1],env,csvData[,6:3240])
-# names(newData)[1] <- "Height"
-
-# write.csv(newData, "combinedCovar.csv", row.names = F)
-# write.csv(uTab, "combinedCovarKey.csv", row.names = F)
-
 
 dat <- read.cross(file = "./NewManchingPracticeData.csv")
 # RDS Path
