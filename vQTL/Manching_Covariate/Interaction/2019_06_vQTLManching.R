@@ -16,7 +16,20 @@ setwd("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/vQTL/Manching_Covariat
 #setwd("/Users/mbyrd/Stapleton/Stapleton_Lab/vQTL/Manching_Covariate/Interaction")
 
 # Reading in the input file as a 'cross' object
-fr <-read.cross(file = "ManchingStressData_Covar.csv")
+
+data <- read.csv(file = "ManchingStressData_Covar.csv")
+
+# Created a random sample
+# set.seed(1234)
+# subset = data[c(1,2, round(runif(100,1,6674))),]
+# write.csv(subset, file = "Manching_Sample.csv")
+
+
+# Full Data Set, Comment if using Sample
+# fr <-read.cross(file = "ManchingStressData_Covar.csv")
+
+# Sample of Data Set, Comment if using full data
+fr <-read.cross(file = "Manching_Sample.csv")
 
 # Not sure what these two functions do yet.
 fr <- drop.nullmarkers(fr)
@@ -30,7 +43,7 @@ addOneVar <- scanonevar(cross = fr,
                    return.covar.effects = TRUE)
 
 # Writing the result of the additive scanonevar for later use
-write_rds(addOneVar, "addOneVar.rds", compress = "xz")
+write_rds(outv, "addOneVarSAMPLE.rds", compress = "xz")
 
 
 # Interactive scanonevar function
@@ -40,9 +53,9 @@ intOneVar <- scanonevar(cross = sample,
                    return.covar.effects = TRUE)
 
 # Writing the result of the interactive scanonevar for later use
-write_rds(intOneVar, "intOneVar.rds", compress = "xz")
+write_rds(outv, "intOneVarSAMPLE.rds", compress = "xz")
 
 
 # Writing out the results of the two 
-write.csv(addOneVar$result, file = "Manching_additive_model.csv")
-write.csv(intOneVar$result, file = "Manching_interactive_model.csv")
+write.csv(addOneVar$result, file = "Manching_additive_modelSAMPLE.csv")
+write.csv(intOneVar$result, file = "Manching_interactive_modelSAMPLE.csv")
