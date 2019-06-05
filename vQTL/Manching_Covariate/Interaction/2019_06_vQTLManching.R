@@ -35,7 +35,7 @@ fr <-read.cross(file = "Manching_Sample.csv")
 fr <- drop.nullmarkers(fr)
 #scan with variance
 fr <- calc.genoprob(fr)
-
+print("before scanonevar")
 # Additive scanonevar function
 addOneVar <- scanonevar(cross = fr,
                    mean.formula = Height ~ Env + mean.QTL.add + mean.QTL.dom,
@@ -43,17 +43,17 @@ addOneVar <- scanonevar(cross = fr,
                    return.covar.effects = TRUE)
 
 # Writing the result of the additive scanonevar for later use
-write_rds(outv, "addOneVarSAMPLE.rds", compress = "xz")
-
+write_rds(addOneVar, "addOneVarSAMPLE.rds", compress = "xz")
+print("first scanonevar")
 
 # Interactive scanonevar function
-intOneVar <- scanonevar(cross = sample,
+intOneVar <- scanonevar(cross = fr,
                    mean.formula = Height ~ Env * (mean.QTL.add + mean.QTL.dom),
                    var.formula = ~ Env * (var.QTL.add + var.QTL.dom),
                    return.covar.effects = TRUE)
-
+print("second scanonevar")
 # Writing the result of the interactive scanonevar for later use
-write_rds(outv, "intOneVarSAMPLE.rds", compress = "xz")
+write_rds(intOneVar, "intOneVarSAMPLE.rds", compress = "xz")
 
 
 # Writing out the results of the two 
