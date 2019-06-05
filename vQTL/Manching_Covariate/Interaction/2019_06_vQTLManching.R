@@ -29,7 +29,7 @@ data <- read.csv(file = "ManchingStressData_Covar.csv")
 # fr <-read.cross(file = "ManchingStressData_Covar.csv")
 
 # Sample of Data Set, Comment if using full data
-fr <-read.cross(file = "Manching_Sample.csv")
+fr <-read.cross(file = "ManchingStressData_Covar.csv")
 
 # Not sure what these two functions do yet.
 fr <- drop.nullmarkers(fr)
@@ -43,7 +43,7 @@ addOneVar <- scanonevar(cross = fr,
                    return.covar.effects = TRUE)
 
 # Writing the result of the additive scanonevar for later use
-write_rds(addOneVar, "addOneVarSAMPLE.rds", compress = "xz")
+write_rds(addOneVar, "addOneVar.rds", compress = "xz")
 print("first scanonevar")
 
 # Interactive scanonevar function
@@ -53,9 +53,9 @@ intOneVar <- scanonevar(cross = fr,
                    return.covar.effects = TRUE)
 print("second scanonevar")
 # Writing the result of the interactive scanonevar for later use
-write_rds(intOneVar, "intOneVarSAMPLE.rds", compress = "xz")
+write_rds(intOneVar, "intOneVar.rds", compress = "xz")
 
 
 # Writing out the results of the two 
-write.csv(addOneVar$result, file = "Manching_additive_modelSAMPLE.csv")
-write.csv(intOneVar$result, file = "Manching_interactive_modelSAMPLE.csv")
+write.csv(addOneVar$result, file = "Manching_additive_model.csv")
+write.csv(intOneVar$result, file = "Manching_interactive_model.csv")
