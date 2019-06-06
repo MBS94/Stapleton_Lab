@@ -1,4 +1,0 @@
-slurmstepd: error: *** JOB 3724558 ON c435-091 CANCELLED AT 2019-06-05T10:53:41 ***
-running
-  '/opt/apps/intel17/impi17_0/Rstats/3.4.0/lib64/R/bin/R --slave --no-restore --file=./2019_06_vQTLManching.R'
-

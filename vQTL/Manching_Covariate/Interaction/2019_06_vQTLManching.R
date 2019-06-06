@@ -35,6 +35,8 @@ fr <-read.cross(file = "ManchingStressData_Covar.csv")
 fr <- drop.nullmarkers(fr)
 #scan with variance
 fr <- calc.genoprob(fr)
+
+fr$pheno$Env <- factor(fr$pheno$Env)
 print("before scanonevar")
 # Additive scanonevar function
 addOneVar <- scanonevar(cross = fr,
