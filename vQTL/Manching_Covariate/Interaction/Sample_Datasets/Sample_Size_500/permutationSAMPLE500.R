@@ -26,7 +26,7 @@ setwd("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/vQTL/Manching_Covariat
 
 
 # Full Data Set, Comment if using Sample
-fr <-read.cross(file = "Manching_Sample300.csv")
+fr <-read.cross(file = "Manching_Sample500.csv")
 
 # Sample of Data Set, Comment if using full data
 # fr <-read.cross(file = "ManchingStressData_Covar.csv")
