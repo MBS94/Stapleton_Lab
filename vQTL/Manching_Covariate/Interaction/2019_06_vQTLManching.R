@@ -17,11 +17,11 @@ setwd("/work/04908/mcb4548/stampede2/GitHub/Stapleton_Lab/vQTL/Manching_Covariat
 
 # Reading in the input file as a 'cross' object
 
-data <- read.csv(file = "Manching_Sample.csv")
+# data <- read.csv(file = "ManchingStressData_Covar.csv")
 
 # Created a random sample
 # set.seed(1234)
-# subset = data[c(1,2, round(runif(100,1,6674))),]
+# subset = data[c(1,2, round(runif(500,1,6674))),]
 # write.csv(subset, file = "Manching_Sample.csv")
 
 
