@@ -62,5 +62,5 @@ write_rds(intOneVar, "intOneVarSAMPLE.rds", compress = "xz")
 write.csv(addOneVar$result, file = "Manching_additive_modelSAMPLE.csv")
 write.csv(intOneVar$result, file = "Manching_interactive_modelSAMPLE.csv")
 
-perm <- scanonevar.perm(intOneVar, n.perms = 2, n.cores = 32)
+# perm <- scanonevar.perm(intOneVar, n.perms = 2, n.cores = 32)
 
