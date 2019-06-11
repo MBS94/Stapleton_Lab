@@ -38,5 +38,9 @@ fr <- calc.genoprob(fr)
 
 fr$pheno$Env <- factor(fr$pheno$Env)
 
-perm <- scanonevar.perm(intOneVar, n.perms = 2, n.cores = 32)
+intOneVarSAMPLE500 <- read_rds("intOneVarSAMPLE500.rds")
+
+print("read worked")
+
+perm <- scanonevar.perm(intOneVarSAMPLE500, n.perms = 2, n.cores = 32)
 
