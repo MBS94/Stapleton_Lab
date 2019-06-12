@@ -45,3 +45,9 @@ print("read worked")
 perm <- scanonevar.perm(intOneVarSAMPLE500, n.perms = 2, n.cores = 32)
 
 write_rds(perm, "permutationSAMPLE500.rds", compress = "xz")
+
+perm <- read_rds("permutationSAMPLE500.rds")
+
+write.csv(perm$meta, file = "permSAMPLE500_meta.csv")
+write.csv(perm$result, file = "permSAMPLE500_result.csv")
+write.csv(perm$perms, file = "permSAMPLE500_perms.csv")
