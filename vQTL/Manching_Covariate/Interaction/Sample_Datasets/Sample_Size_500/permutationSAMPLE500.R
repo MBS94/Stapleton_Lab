@@ -44,4 +44,4 @@ print("read worked")
 
 perm <- scanonevar.perm(intOneVarSAMPLE500, n.perms = 2, n.cores = 32)
 
-write_rds(perm, "permutationSAMPLE300.rds", compress = "xz")
+write_rds(perm, "permutationSAMPLE500.rds", compress = "xz")
