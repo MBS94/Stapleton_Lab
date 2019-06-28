@@ -1,0 +1,20 @@
+Learn not to use the term "fake data"
+
+Found the top 10 significant genes. With absolute value of avg(A) - avg(B)
+
+"IDP3914"  "mmp195g"  "mmp177c"
+"umc2087"  "lim333"   "gpm662b"
+"bnl5.46c" "IDP2349"  "gpm296c"  "IDP574"  
+
+Created a simulation of two genes, all possible combinations. 00, 01, 10, 11.
+Observations of each of the 8 different env stress combonations with the 4 distinct gene combos
+
+Created simulated Heights based on the equation,
+
+H = a + env_coeff * env + g1_coeff * g1 + g2_coeff * g2 + error
+
+Attempted running through vQTL scanonevar, ran into some errors.
+
+Removed, return covar effects. No errors, but unhelpful results. All NAs
+
+Next steps is to debug vQTL problems and create larger simulated data.
