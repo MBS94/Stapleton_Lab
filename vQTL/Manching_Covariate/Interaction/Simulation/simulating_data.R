@@ -11,9 +11,9 @@ setwd("/Users/mbyrd/Stapleton/Stapleton_Lab/vQTL/Manching_Covariate/Interaction/
 
 simulated = NULL
 
-for (i in 1:2){
-  for (j in 1:2){
-    t <- cbind( (i-1), (j-1) )
+for (i in 0:1){
+  for (j in 0:1){
+    t <- cbind( (i), (j) )
     simulated <- rbind(simulated, t)
   }
 }

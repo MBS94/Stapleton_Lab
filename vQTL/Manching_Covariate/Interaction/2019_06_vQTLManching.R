@@ -32,36 +32,48 @@ fr <- drop.nullmarkers(fr)
 fr <- calc.genoprob(fr)
 
 fr$pheno$Env <- factor(fr$pheno$Env)
-print("before scanonevar")
-# Additive scanonevar function
-addOneVar <- scanonevar(cross = fr,
-                   mean.formula = Height ~ Env + mean.QTL.add + mean.QTL.dom,
-                   var.formula = ~ Env + var.QTL.add + var.QTL.dom,
-                   return.covar.effects = TRUE)
+fr$pheno$Low.Water <- factor(fr$pheno$Low.Water)
+fr$pheno$Low.Nitrogen <- factor(fr$pheno$Low.Nitrogen)
+fr$pheno$Pathogen <- factor(fr$pheno$Pathogen)
+# print("before scanonevar")
+# # Additive scanonevar function
+# addOneVar <- scanonevar(cross = fr,
+#                    mean.formula = Height ~ Env + mean.QTL.add + mean.QTL.dom,
+#                    var.formula = ~ Env + var.QTL.add + var.QTL.dom,
+#                    return.covar.effects = TRUE)
+# 
+# # Writing the result of the additive scanonevar for later use
+# write_rds(addOneVar, "addOneVar.rds", compress = "xz")
+# print("first scanonevar")
+# 
+# # Interactive scanonevar function
+# intOneVar <- scanonevar(cross = fr,
+#                    mean.formula = Height ~ Env * (mean.QTL.add + mean.QTL.dom),
+#                    var.formula = ~ Env * (var.QTL.add + var.QTL.dom),
+#                    return.covar.effects = TRUE)
+# print("second scanonevar")
 
-# Writing the result of the additive scanonevar for later use
-write_rds(addOneVar, "addOneVar.rds", compress = "xz")
-print("first scanonevar")
-
-# Interactive scanonevar function
-intOneVar <- scanonevar(cross = fr,
-                   mean.formula = Height ~ Env * (mean.QTL.add + mean.QTL.dom),
-                   var.formula = ~ Env * (var.QTL.add + var.QTL.dom),
-                   return.covar.effects = TRUE)
-print("second scanonevar")
 # Writing the result of the interactive scanonevar for later use
-write_rds(intOneVar, "intOneVar.rds", compress = "xz")
+# write_rds(intOneVar, "intOneVar.rds", compress = "xz")
 
-addOneVar <- read_rds("addOneVar.rds")
-intOneVar <- read_rds("intOneVar.rds")
+# Second attempt for Interactive scanonevar function
+intOneVar2 <- scanonevar(cross = fr,
+                        mean.formula = Height ~ Low.Water * (mean.QTL.add + mean.QTL.dom) + Low.Nitrogen * (mean.QTL.add + mean.QTL.dom) + Pathogen * (mean.QTL.add + mean.QTL.dom),
+                        var.formula = ~ Env * (var.QTL.add + var.QTL.dom),
+                        return.covar.effects = TRUE)
+write_rds(intOneVar2, "intOneVar2.rds", compress = "xz")
 
 
-plot(intOneVar) #, tests_to_plot = "vQTL", chrs = "1")
+# addOneVar <- read_rds("addOneVar.rds")
+# intOneVar <- read_rds("intOneVar.rds")
 
- summary(intOneVar)
+
+# plot(intOneVar) #, tests_to_plot = "vQTL", chrs = "1")
+# 
+#  summary(intOneVar)
 
 # Writing out the results of the two 
-write.csv(addOneVar$result, file = "Manching_additive_model.csv")
-write.csv(intOneVar$result, file = "Manching_interactive_model.csv")
-
+# write.csv(addOneVar$result, file = "Manching_additive_model.csv")
+# write.csv(intOneVar$result, file = "Manching_interactive_model.csv")
+write.csv(intOneVar2$result, file = "Manching_interactive_model2.csv")
 

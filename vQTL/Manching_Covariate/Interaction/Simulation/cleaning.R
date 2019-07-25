@@ -34,14 +34,20 @@ averages_sorted <- averages[order(averages[,2], decreasing = TRUE),]
 
 top10_index <- averages_sorted[1:10,1]
 
-sub_data[,top10_index]
-
 for(item in top10_index){
   print(tapply(sub_data$Height,sub_data[,item], mean))
 }
-tapply(sub_data$Height,sub_data[,top10_index], mean)
+# tapply(sub_data$Height,sub_data[,top10_index], mean)
 
 colnames(sub_data[,top10_index])
+
+
+# 1. Open jpeg file
+jpeg("IDP574_box.jpg", width = 1024, height = 1024)
+# 2. Create the plot
+boxplot(sub_data$Height~droplevels(sub_data$IDP574, exclude = '-'))
+# 3. Close the file
+dev.off()
 
 # ------Code for later -----
 # fr <-read.cross(file = "ManchingStressData_Covar.csv")

@@ -13,4 +13,4 @@
 # Other commands must follow all #SBATCH directives...
 
 mkdir output
-Rscript --vanilla --verbose ./SimulatedvQTL.R > ./output.Rout
+Rscript --vanilla --verbose ./2019_06_vQTLManching.R > ./output.Rout
