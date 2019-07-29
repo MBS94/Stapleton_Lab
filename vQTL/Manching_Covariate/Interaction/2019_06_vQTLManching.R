@@ -59,7 +59,7 @@ fr$pheno$Pathogen <- factor(fr$pheno$Pathogen)
 # Second attempt for Interactive scanonevar function
 intOneVar2 <- scanonevar(cross = fr,
                         mean.formula = Height ~ Low.Water * (mean.QTL.add + mean.QTL.dom) + Low.Nitrogen * (mean.QTL.add + mean.QTL.dom) + Pathogen * (mean.QTL.add + mean.QTL.dom),
-                        var.formula = ~ Env * (var.QTL.add + var.QTL.dom),
+                        var.formula = ~ Low.Water * (var.QTL.add + var.QTL.dom) + Low.Nitrogen * (var.QTL.add + var.QTL.dom) + Pathogen * (var.QTL.add + var.QTL.dom),
                         return.covar.effects = TRUE)
 write_rds(intOneVar2, "intOneVar2.rds", compress = "xz")
 

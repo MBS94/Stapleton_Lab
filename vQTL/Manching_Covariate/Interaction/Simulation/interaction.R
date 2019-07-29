@@ -13,6 +13,8 @@ sub_data <- data[3:6674,]
 
 significant_index <- c(123,490, 2359, 2860, 2315, 2354, 2358, 1436, 2355, 2353) 
 
+ind <- 1811
+table(sub_data[ind])
 for(k in 1:length(significant_index)){
   ind <- significant_index[k]
   A_count = cbind(0,0,0,0,0,0,0,0)
@@ -57,12 +59,18 @@ dev.off()
   
 p <- ggplot(sub_data, aes(x = as.factor(Env), y = Height)) + geom_boxplot()
 
-subset(sub_data, sub_data[,123] != "-")
+subset(sub_data, sub_data[,1436] != "-")
 
-temp <- data.frame(sub_data[,c(1,10,123)])
-temp <- subset(temp, IDP3914 != "-")
+temp <- data.frame(sub_data[,c(1,10,1436)])
+temp <- subset(temp, sub_data[1436] != "-")
 
-ggplot(temp, aes(x = as.factor(Env), y = Height)) + geom_boxplot(aes(fill = temp[,3]))
+p <- ggplot(temp, aes(x = as.factor(Env), y = Height)) + 
+  geom_boxplot(aes(fill = temp[,3])) + labs(title = paste0(colnames(sub_data[1436])))
+
+p1 <- ggplot(temp, aes(x = as.factor(Env), y = Height)) + geom_line()
+
+
+
 
 
 geneA = c()
