@@ -15,14 +15,17 @@ significant_index <- c(123,490, 2359, 2860, 2315, 2354, 2358, 1436, 2355, 2353)
 
 ind <- 1811
 table(sub_data[ind])
+
+# Summing the heights per environment as well as counting the frequency
 for(k in 1:length(significant_index)){
   ind <- significant_index[k]
+  
   A_count = cbind(0,0,0,0,0,0,0,0)
   A_total = cbind(0,0,0,0,0,0,0,0)
   
   B_count = cbind(0,0,0,0,0,0,0,0)
   B_total = cbind(0,0,0,0,0,0,0,0)
-  
+  # Total sum and frequency
   for(i in 1:nrow(sub_data)){
     j = sub_data[i,10]
     if(strcmp(as.character(sub_data[i,ind]), "A")){
@@ -34,7 +37,7 @@ for(k in 1:length(significant_index)){
       B_total[j] = B_total[j] + sub_data[i,1]
     }
   }
-
+  # Calculating the averages
   A_average = as.data.frame(t(A_total/A_count))
   B_average = as.data.frame(t(B_total/B_count))
   
@@ -44,6 +47,7 @@ for(k in 1:length(significant_index)){
   colnames(A_average) = c("Average","Env")
   colnames(B_average) = c("Average","Env")
   
+  # Plotting the Environment vs Average Height
   jpeg(paste0(colnames(sub_data[ind]),".jpeg"), width = 600, height = 600)
   p <- ggplot() + geom_line(data = B_average, aes(x = Env, y = Average),color="blue") + 
     geom_line(data = A_average, aes(x = Env, y = Average),color="red") +
@@ -57,6 +61,8 @@ for(k in 1:length(significant_index)){
 }  
 dev.off()
   
+
+# Creating some boxplots
 p <- ggplot(sub_data, aes(x = as.factor(Env), y = Height)) + geom_boxplot()
 
 subset(sub_data, sub_data[,1436] != "-")
@@ -71,8 +77,7 @@ p1 <- ggplot(temp, aes(x = as.factor(Env), y = Height)) + geom_line()
 
 
 
-
-
+# Creating Boxplots for specific genes. Plots for A & B on the same plot. Environment vs Height
 geneA = c()
 geneB = c()
 ind = 11
